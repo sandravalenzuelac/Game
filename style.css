@@ -1,0 +1,112 @@
+/* 
+
+main {
+    border: 1px solid black;
+    margin: 30px auto;
+justify-content: center;
+}
+
+.section1 {
+    background-color: rgba(255,255,255,0.2) ; 
+    padding: 0 10px 10px 10px;
+    border-radius: 8px;
+}
+
+button{
+    height: 100px;
+    width: 100px;
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+}
+button:hover{
+    cursor: pointer;
+}
+h1 {
+    text-align: center;
+}
+
+.section2{
+    background-color: rgba(255,255,255,0.2) ;  
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 250px;
+    height: 400px;
+    padding: 0;
+}
+
+.estadistica{
+    border: 1px solid white;
+    height: 100px;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+} */
+
+* {
+    padding: 0;
+    margin:  0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 1000px;
+    margin-left: 150px;
+}
+
+.head{
+    max-width: 300px;
+    margin: auto;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(4, auto) ;
+    gap: 1rem;
+    margin: auto;
+    padding: 20px;
+}
+
+.carta div {
+    height: 130px;
+}
+
+.carta {
+    position: relative;
+}
+
+.frente {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #a6a6a6;
+    background-color: beige;
+    transform: rotateY(90deg);
+}
+
+.atras {
+   background-color: black;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
+
+.puntaje {
+    margin-top: 10px;
+}
+
+.mostrar{
+    transform: rotateY(0deg);
+}
