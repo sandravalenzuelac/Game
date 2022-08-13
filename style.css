@@ -50,8 +50,7 @@ h1 {
 }
 
 main{
-    width: 1000px;
-    margin-left: 150px;
+    width: 100%;
 }
 
 .head{
@@ -110,3 +109,24 @@ img{
 .mostrar{
     transform: rotateY(0deg);
 }
+
+.par {
+    transform:rotateY(0deg);
+}
+
+.enseñar{
+    transform:rotateY(0deg); 
+}
+
+@media screen and (min-width: 770px){
+    .head{
+        max-width: 760px;
+    }
+        .container{
+            grid-template-columns: repeat(4, auto) ;
+        }
+
+        .carta div{
+height: 170px;
+        }
+    }
