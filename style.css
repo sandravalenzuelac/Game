@@ -33,3 +33,8 @@ button{
 td{
     padding: 3px;
 }
+
+img{
+    height: 80px;
+    width: 80px;
+}
