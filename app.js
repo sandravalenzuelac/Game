@@ -1,36 +1,29 @@
+let tarjetasDestapadas = 0;
+let imagenUno = null;
+let imagenDos = null;
+let primerResultado = null;
+let SegundoResultado = null;
 
-const imagen = document.querySelectorAll(".carta")
-const frente = document.querySelectorAll(".frente")
+let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 
-imagenAleatoria()
-click()
+numeros = numeros.sort(() =>{return Math.random() -0.5});
+console.log(numeros);
 
+function destapar(id){
+tarjetasDestapadas++;
 
-function imagenAleatoria() {
-    imagen.forEach(aleatorio => {
-        const numeros = [...Array(imagen.length).keys()]
-        const random = Math.floor(Math.random() * imagen.length)
+ if(tarjetasDestapadas == 1){
+    imagenUno = document.getElementById(id);
+    primerResultado = numeros[id];
+    imagenUno =innerHTML = primerResultado;
 
-        aleatorio.style.order = numeros[random]
-    })
-}
+    imagenUno.disabled = true;
+ }else if(tarjetasDestapadas == 2){
+    imagenDos = document.getElementById(id);
+    primerResultado = numeros[id];
+    imagenDos =innerHTML = primerResultado;
 
-function click() {
-    for (let i = 0; i < imagen.length; i++) {
-
-        imagen[i].addEventListener('click', () => {
-
-            frente[i].classList.add('mostrar')
-        })
-    }
-}
-
-let mostrar
-if(localStorage.setItem('imagen', 'mostrar')){
-    numeros = JSON.parse(localStorage.getItem("imagen"))
-} else {
-    localStorage.setItem("imagen", JSON.stringify(numeros))
-}
-
-
+    imagenDos.disabled = true;
+ }
+ }
 
