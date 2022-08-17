@@ -1,3 +1,10 @@
+Swal.fire({
+    title: 'Bienvenido',
+    text: 'Presione el boton continuar para comenzar a jugar',
+    confirmButtonText: 'Continuar',
+    footer: '<a href="">https://github.com/sandravalenzuelac</a>'
+})
+
 let tarjetasDestapadas = 0;
 let imagenUno = null;
 let imagenDos = null;
@@ -8,43 +15,54 @@ let aciertos = 0;
 const mostrarAciertos = document.getElementById("aciertos");
 
 //Numeros aleatorios
-let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-numeros = numeros.sort(() =>{return Math.random() -0.5});
+let numeros = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+numeros = numeros.sort(() => {
+    return Math.random() - 0.5
+});
 console.log(numeros);
 
-function destapar(id){
-tarjetasDestapadas++;
-console.log(tarjetasDestapadas);
+function destapar(id) {
 
- if(tarjetasDestapadas == 1){
+    tarjetasDestapadas++;
+    console.log(tarjetasDestapadas);
 
-    imagenUno = document.getElementById(id);
-    primerResultado = numeros[id];
-    imagenUno.innerHTML = `<img src="./img/${primerResultado}.png" alt="">`;
+    if (tarjetasDestapadas == 1) {
 
-    imagenUno.disabled = true;
- }else if(tarjetasDestapadas == 2){
+        imagenUno = document.getElementById(id);
 
-    imagenDos = document.getElementById(id);
-    segundoResultado = numeros[id];
-    imagenDos.innerHTML = `<img src="./img/${segundoResultado}.png" alt="">`;;
+        primerResultado = numeros[id];
+        imagenUno.innerHTML = `<img src="./img/${primerResultado}.png" alt="">`;
 
-    imagenDos.disabled = true;
+        imagenUno.disabled = true;
+    } else if (tarjetasDestapadas == 2) {
 
-if(primerResultado == segundoResultado){
- tarjetasDestapadas = 0;
+        imagenDos = document.getElementById(id);
+        segundoResultado = numeros[id];
+        imagenDos.innerHTML = `<img src="./img/${segundoResultado}.png" alt="">`;;
 
-aciertos++;
-mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`
-}else{
-    setTimeout(()=>{    
-    imagenUno.innerHTML = ' ';
-    imagenDos.innerHTML = ' ';
-    imagenUno.disabled = false;
-    imagenDos.disabled = false;
-    tarjetasDestapadas = 0;
-},2000);
+        imagenDos.disabled = true;
+
+        if (primerResultado == segundoResultado) {
+            Toastify({
+                text: "Excelente!",
+                className: "info",
+                style: {
+                    background: "bg-primary",
+                }
+            }).showToast();
+            tarjetasDestapadas = 0;
+
+            aciertos++;
+            mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`
+        } else {
+            setTimeout(() => {
+                imagenUno.innerHTML = ' ';
+                imagenDos.innerHTML = ' ';
+                imagenUno.disabled = false;
+                imagenDos.disabled = false;
+                tarjetasDestapadas = 0;
+            }, 2000);
+        }
+    }
 
 }
- }
- }
