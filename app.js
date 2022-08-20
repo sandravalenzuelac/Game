@@ -1,10 +1,31 @@
-Swal.fire({
-    title: 'Bienvenido',
-    text: 'Presione el boton continuar para comenzar a jugar',
-    confirmButtonText: 'Continuar',
-    footer: '<a href="">https://github.com/sandravalenzuelac</a>'
-})
+class usuario {
+    constructor(nombre) {
+        this.nombre = nombre
+    }
+}
 
+let usuarios = []
+
+if (localStorage.getItem("usuarios")) {
+    usuarios = JSON.parse(localStorage.getItem("usuarios"))
+} else {
+    localStorage.setItem("usuarios", JSON.stringify(usuarios))
+}
+
+const formulario = document.querySelector('form')
+const input = document.querySelector('input')
+const botonConfirmacion = document.querySelector('button')
+
+
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const datForm = new FormData(e.target)
+
+    const usuarioObj = new usuario(datForm.get("nombre"))
+
+    usuarios.push(usuarioObj)
+    localStorage.setItem("usuarios", JSON.stringify(usuarios))
+})
 let tarjetasDestapadas = 0;
 let imagenUno = null;
 let imagenDos = null;
@@ -54,7 +75,18 @@ function destapar(id) {
 
             aciertos++;
             mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`
+            if (aciertos == 8) {
+                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} Ganaste!`
+            }
         } else {
+            Toastify({
+                text: "Sigue intentando",
+                className: "info",
+                style: {
+                    background: "bg-primary",
+                    padding: 20,
+                }
+            }).showToast();
             setTimeout(() => {
                 imagenUno.innerHTML = ' ';
                 imagenDos.innerHTML = ' ';
