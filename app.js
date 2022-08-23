@@ -19,6 +19,7 @@ const botonConfirmacion = document.querySelector('button')
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault()
+
     const datForm = new FormData(e.target)
 
     const usuarioObj = new usuario(datForm.get("nombre"))
