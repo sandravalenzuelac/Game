@@ -1,32 +1,39 @@
-class usuario {
-    constructor(nombre) {
-        this.nombre = nombre
+
+    class usuario {
+        constructor(nombre) {
+            this.nombre = nombre
+        }
     }
-}
+    
+    let usuarios = []
+    
+    if (localStorage.getItem("usuarios")) {
+        usuarios = JSON.parse(localStorage.getItem("usuarios"))
+    } else {
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+    }
+    
+    const formulario = document.querySelector('form')
+    const input = document.querySelector('input')
+    const botonConfirmacion = document.querySelector('button')
+    
+    
+    formulario.addEventListener("submit", (e) => {
+        e.preventDefault()
+    
+        const datForm = new FormData(e.target)
+    
+        const usuarioObj = new usuario(datForm.get("nombre"))
+    
+        usuarios.push(usuarioObj)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+    })
 
-let usuarios = []
+fetch("https://thesimpsonsquoteapi.glitch.me/quotes?characters")
 
-if (localStorage.getItem("usuarios")) {
-    usuarios = JSON.parse(localStorage.getItem("usuarios"))
-} else {
-    localStorage.setItem("usuarios", JSON.stringify(usuarios))
-}
+.then(response => response.json())
+.then(data => console.log(data))
 
-const formulario = document.querySelector('form')
-const input = document.querySelector('input')
-const botonConfirmacion = document.querySelector('button')
-
-
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault()
-
-    const datForm = new FormData(e.target)
-
-    const usuarioObj = new usuario(datForm.get("nombre"))
-
-    usuarios.push(usuarioObj)
-    localStorage.setItem("usuarios", JSON.stringify(usuarios))
-})
 let tarjetasDestapadas = 0;
 let imagenUno = null;
 let imagenDos = null;
