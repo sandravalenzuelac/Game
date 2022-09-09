@@ -1,65 +1,43 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
-    <title>Document</title>
+    <title>MemoryGame</title>
 </head>
 
-<body class="bg-primary">
-
-    <main class="bg-primary btn btn-outline-light">
-        <div id="divImage">
-            <h2 class="head btn-outline-light bg-secondary">
-                Memory Game
-            </h2>
+<body>
+    <main class="bg-primary btn btn-outline-secondary">
+        <div>
+            <img class="imgS"
+                src="https://cdn.glitch.com/3c3ffadc-3406-4440-bb95-d40ec8fcde72%2Fsimpsons.PNG?1497481539770"
+                alt="imagen aleatoria de los Simpsons">
         </div>
-        <form action="index.html">
-            <h4>Ingresa tu nombre</h4>
-            <label for="nombre">Nombre</label>
-            <input name="nombre" id="input" type="text">
-            <button type="submit" name="boton" class="botonConfirmacion">Aceptar</button>
-        </form>
-        <section class="seccionUno">
-            <table>
-                <tr>
-                    <td><button id="0" onclick="destapar(0)"></button></td>
-                    <td><button id="1" onclick="destapar(1)"></button></td>
-                    <td><button id="2" onclick="destapar(2)"></button></td>
-                    <td><button id="3" onclick="destapar(3)"></button></td>
-                </tr>
-                <tr>
-                    <td><button id="4" onclick="destapar(4)"></button></td>
-                    <td><button id="5" onclick="destapar(5)"></button></td>
-                    <td><button id="6" onclick="destapar(6)"></button></td>
-                    <td><button id="7" onclick="destapar(7)"></button></td>
-                </tr>
-                <tr>
-                    <td><button id="8" onclick="destapar(8)"></button></td>
-                    <td><button id="9" onclick="destapar(9)"></button></td>
-                    <td><button id="10" onclick="destapar(10)"></button></td>
-                    <td><button id="11" onclick="destapar(11)"></button></td>
-                </tr>
-                <tr>
-                    <td><button id="12" onclick="destapar(12)"></button></td>
-                    <td><button id="13" onclick="destapar(13)"></button></td>
-                    <td><button id="14" onclick="destapar(14)"></button></td>
-                    <td><button id="15" onclick="destapar(15)"></button></td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2 id="aciertos" class="estadisticas">Aciertos = 0</h2>
-        </section>
+        <form action="game.html" id="form">
+            <h4 class="titulo1">Bienvenido al juego de memoria, ingresa tu nombre para comenzar a jugar</h4>
+            <div class="input-group mb-3 mt-4">
+                <input id="nombre" name="nombre" type="text" class="form-control bg-secondary" placeholder="Ingresa tu nombre" aria-label="Ingresa tu nombre"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-primary btn-outline-secondary h-25" type="submit" id="button-addon2">Aceptar</button>
+            </div>
 
+        </form>
+        <div id="imgSimpson">
+
+        </div>
     </main>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.all.min.js"></script>
-    <script src="app.js"></script>
+
 </body>
+
+<footer class="btn btn-outline-secondary">
+    <p>
+        © 2022 Copyright <a href="https://github.com/sandravalenzuelac">Sandra Valenzuela</a>
+    </p>
+</footer>
+<script src="app.js"></script>
 
 </html>
